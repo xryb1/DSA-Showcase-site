@@ -466,4 +466,44 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    let countingSortArray = [];
+
+    window.generateRandomArrayCounting = function() {
+        countingSortArray = Array.from({length: 10}, () => Math.floor(Math.random() * 100));
+        updateSpecificArrayDisplay('counting-sort-display', countingSortArray);
+    }
+
+    window.countingSort = async function() {
+        const arr = [...countingSortArray];
+        const max = Math.max(...arr);
+        const min = Math.min(...arr);
+        const range = max - min + 1;
+        
+        const count = new Array(range).fill(0);
+        
+        for (let i = 0; i < arr.length; i++) {
+            count[arr[i] - min]++;
+            await new Promise(resolve => setTimeout(resolve, 300));
+        }
+        
+        for (let i = 1; i < count.length; i++) {
+            count[i] += count[i - 1];
+        }
+        
+        const output = new Array(arr.length);
+        for (let i = arr.length - 1; i >= 0; i--) {
+            output[count[arr[i] - min] - 1] = arr[i];
+            count[arr[i] - min]--;
+        }
+        
+        countingSortArray = output;
+        updateSpecificArrayDisplay('counting-sort-display', countingSortArray);
+        showResult('Counting Sort completed');
+    }
+
+    function updateSpecificArrayDisplay(elementId, array) {
+        const displayElement = document.getElementById(elementId);
+        displayElement.innerHTML = array.map(num => `<div class="array-element">${num}</div>`).join('');
+    }
 });

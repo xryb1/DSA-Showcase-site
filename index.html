@@ -26,6 +26,7 @@
                         <li><a href="#bubble-sort">Bubble Sort</a></li>
                         <li><a href="#quick-sort">Quick Sort</a></li>
                         <li><a href="#selection-sort">Selection Sort</a></li>
+                        <li><a href="#counting-sort">Counting Sort</a></li>
                     </ul>
                 </li>
                 <li>
@@ -336,6 +337,41 @@ print("Sorted array:", sorted_arr)
                 <h2>Red-Black Trees</h2>
                 <p>AVL trees are self-balancing, which means that the tree height is kept to a minimum so that a very fast runtime is guaranteed for searching, inserting and deleting nodes</p>
                 <img src="redblacktree.png" alt="reblack">
+            </article>
+
+            <article id="counting-sort">
+                <h2>Counting Sort</h2>
+                <div class="array-demo">
+                    <div class="array-container" id="counting-sort-display"></div>
+                    <div class="controls">
+                        <button onclick="generateRandomArrayCounting()">Generate Random Array</button>
+                        <button onclick="countingSort()">Counting Sort</button>
+                    </div>
+                </div>
+                <div class="code-explanation">
+                    <h3>Counting Sort Algorithm</h3>
+                    <p>Counting Sort is an integer sorting algorithm that counts the occurrences of each value in the input array and uses this information to place each value in its correct position.</p>
+                    <h4>Python Implementation</h4>
+                    <pre><code class="language-python">
+def counting_sort(arr):
+    max_val = max(arr)
+    count = [0] * (max_val + 1)
+    
+    for num in arr:
+        count[num] += 1
+    
+    sorted_arr = []
+    for i, cnt in enumerate(count):
+        sorted_arr.extend([i] * cnt)
+    
+    return sorted_arr
+
+# Example usage:
+arr = [64, 34, 25, 12, 22, 11, 90]
+sorted_arr = counting_sort(arr)
+print("Sorted array:", sorted_arr)
+                    </code></pre>
+                </div>
             </article>
 
         </div>

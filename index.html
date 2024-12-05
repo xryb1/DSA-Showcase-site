@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Informative Showcase Algorithms</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <nav class="side-nav">
+        <div class="menu-btn">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="side-menu">
+            <ul>
+                <li>
+                    <a href="#arrays">Arrays</a>
+                    <ul>
+                        <li><a href="#array-operations">Basic Operations</a></li>
+                        <li><a href="#bubble-sort">Bubble Sort</a></li>
+                        <li><a href="#quick-sort">Quick Sort</a></li>
+                        <li><a href="#selection-sort">Selection Sort</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#graphs">Graphs</a>
+                    <ul>
+                        <li><a href="#graph-representation">Representation</a></li>
+                        <li><a href="#graph-traversal">Traversal</a>
+                            <ul>
+                                <li><a href="#bfs">BFS</a></li>
+                                <li><a href="#dfs">DFS</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#shortest-path">Shortest Path</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#linked-lists">Linked Lists</a>
+                    <ul>
+                        <li><a href="#singly-linked">Singly Linked</a></li>
+                        <li><a href="#doubly-linked">Doubly Linked</a></li>
+                        <li><a href="#circular-linked">Circular Linked</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#trees">Trees</a>
+                    <ul>
+                        <li><a href="#binary-trees">Binary Trees</a></li>
+                        <li><a href="#bst">Binary Search Trees</a></li>
+                        <li><a href="#avl">AVL Trees</a></li>
+                        <li><a href="#red-black">Red-Black Trees</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <header id="header">
+            <div class="logo">
+                <h1>I.S.A.</h1>
+            </div>
+            <div class="content">
+                <div class="inner">
+                    <h2>Informative Showcase Algorithms</h2>
+                    <p>Data Structures and Algorithms</p>
+                </div>
+            </div>
+        </header>
+
+        <div id="main">
+            <article id="arrays">
+                <h2>Arrays</h2>
+                <p>Arrays are fundamental data structures that store elements in contiguous memory locations.</p>
+            </article>
+
+            <article id="array-operations">
+                <h2>Basic Array Operations</h2>
+                <div class="array-demo">
+                    <div class="array-container">
+                        <div id="array-display"></div>
+                    </div>
+                    <div class="controls">
+                        <button onclick="generateRandomArrayBasic()">Generate Random Array</button>
+                        <input type="number" id="arrayInput" placeholder="Enter a number">
+                        <input type="number" id="arrayIndex" placeholder="Enter index">
+                        <button onclick="insertElement()">Insert</button>
+                        <button onclick="deleteElement()">Delete</button>
+                        <button onclick="searchElement()">Search</button>
+                    </div>
+                    <div id="operation-result"></div>
+                </div>
+                <div class="code-explanation">
+                    <h3>Python Implementation</h3>
+                    <p>Here's how these basic array operations can be implemented in Python. In Python, lists are used as dynamic arrays and provide built-in methods for these operations:</p>
+                    <pre><code class="language-python">
+# Basic Array Operations in Python
+
+# Initialize an array
+array = []
+
+# Generate random array
+import random
+def generate_random_array():
+    return [random.randint(1, 100) for _ in range(10)]
+
+# Insert element at specific index
+def insert_element(arr, value, index):
+    arr.insert(index, value)
+    return arr
+
+# Delete element at specific index
+def delete_element(arr, index):
+    if 0 <= index < len(arr):
+        return arr.pop(index)
+    return None
+
+# Search for element
+def search_element(arr, value):
+    try:
+        return arr.index(value)
+    except ValueError:
+        return -1
+
+# Example usage:
+array = generate_random_array()
+print("Initial array:", array)
+
+# Insert 42 at index 2
+array = insert_element(array, 42, 2)
+print("After insertion:", array)
+
+# Delete element at index 3
+deleted = delete_element(array, 3)
+print("After deletion:", array)
+
+# Search for element 42
+position = search_element(array, 42)
+print("42 found at index:", position)
+                    </code></pre>
+                </div>
+            </article>
+
+            <article id="bubble-sort">
+                <h2>Bubble Sort</h2>
+                <div class="array-demo">
+                    <div class="array-container" id="bubble-sort-display"></div>
+                    <div class="controls">
+                        <button onclick="generateRandomArrayBubble()">Generate Random Array</button>
+                        <button onclick="bubbleSort()">Bubble Sort</button>
+                    </div>
+                </div>
+                <div class="code-explanation">
+                    <h3>Bubble Sort Algorithm</h3>
+                    <p>Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.</p>
+                    <h4>Python Implementation</h4>
+                    <pre><code class="language-python">
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+# Example usage:
+arr = [64, 34, 25, 12, 22, 11, 90]
+sorted_arr = bubble_sort(arr)
+print("Sorted array:", sorted_arr)
+                    </code></pre>
+                </div>
+            </article>
+
+            <article id="quick-sort">
+                <h2>Quick Sort</h2>
+                <div class="array-demo">
+                    <div class="array-container" id="quick-sort-display"></div>
+                    <div class="controls">
+                        <button onclick="generateRandomArrayQuick()">Generate Random Array</button>
+                        <button onclick="quickSort()">Quick Sort</button>
+                    </div>
+                </div>
+                <div class="code-explanation">
+                    <h3>Quick Sort Algorithm</h3>
+                    <p>Quick Sort is an efficient, in-place sorting algorithm that uses a divide-and-conquer strategy to sort elements.</p>
+                    <h4>Python Implementation</h4>
+                    <pre><code class="language-python">
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    
+    return quick_sort(left) + middle + quick_sort(right)
+
+# Example usage:
+arr = [64, 34, 25, 12, 22, 11, 90]
+sorted_arr = quick_sort(arr)
+print("Sorted array:", sorted_arr)
+                    </code></pre>
+                </div>
+            </article>
+
+            <article id="selection-sort">
+                <h2>Selection Sort</h2>
+                <div class="array-demo">
+                    <div class="array-container" id="selection-sort-display"></div>
+                    <div class="controls">
+                        <button onclick="generateRandomArraySelection()">Generate Random Array</button>
+                        <button onclick="selectionSort()">Selection Sort</button>
+                    </div>
+                </div>
+                <div class="code-explanation">
+                    <h3>Selection Sort Algorithm</h3>
+                    <p>Selection Sort is a simple sorting algorithm that divides the input into a sorted and unsorted region, and repeatedly selects the smallest element from the unsorted region to add to the sorted region.</p>
+                    <h4>Python Implementation</h4>
+                    <pre><code class="language-python">
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+
+# Example usage:
+arr = [64, 34, 25, 12, 22, 11, 90]
+sorted_arr = selection_sort(arr)
+print("Sorted array:", sorted_arr)
+                    </code></pre>
+                </div>
+            </article>
+
+            <article id="graphs">
+                <h2>Graphs</h2>
+                <p>Graphs are collection of nodes (or vertices) connectedby edges. They are used to represent relationshipsbetween pairs of objects. Graphs can be directed or undirected, weighted or unweighted, and widely used in various such as social netweorks, transportation systems, and network topology.</p>
+                <img src="GRAPH.png" alt="graph">
+            </article>
+
+            <article id="graph-representation">
+                <h2>Graph Representation</h2>
+                <p>Graphs can be represented in various ways, primarily through adjacency lists and adjacency matrices:</p>
+                <ul>
+                    <li><strong>Adjacency List:</strong> This representation uses an array of lists. Each index of the array represents a vertex, and each element in the list at that index represents the vertices that are adjacent to it. This is space-efficient for sparse graphs.</li>
+                    <li><strong>Adjacency Matrix:</strong> This representation uses a 2D array where the rows and columns represent vertices. A cell in the matrix is marked if there is an edge between the corresponding vertices. This is useful for dense graphs but can consume more space.</li>
+                </ul>
+                <img src="adjacent list.png" alt="list">
+                <img src="adjacent.png" alt="adjacentmatrix">
+            </article>
+
+            <article id="graph-traversal">
+                <h2>Graph Traversal</h2>
+                <p>Graph traversal is the process of visiting each vertex in a graph.</p>
+            
+            </article>
+
+            <article id="bfs">
+                <h2>BFS</h2>
+                <p>Breadth-First Search (BFS) explores neighboring vertices before moving to the next level using a queue. It is effective for finding the shortest path in unweighted graphs as it explores all nodes at the current level before moving on. BFS is ideal for scenarios like finding the shortest route in a maze.</p>
+                <img src="bfs.png" alt="bfs">
+            </article>
+
+            <article id="dfs">
+                <h2>DFS</h2>
+                <p>Depth-First Search (DFS) explores as far as possible along each branch before backtracking using a stack. It is useful for detecting cycles and exploring connected components in a graph. DFS is effective for cycle detection and can help identify all vertices connected to a given vertex, making it beneficial for applications like finding clusters in social</p>
+                <img src="dfs.png" alt="dfs">
+            </article>
+
+            <article id="shortest-path">
+                <h2>Shortest Path</h2>
+                <p>The shortest path from vertex D to vertex F in the Graph above is D->E->C->F, with a total path weight of 2+4+4=10. Other paths from D to F are also possible, but they have a higher total weight, so they can not be considered to be the shortest path.</p>
+                <img src="SHORTESTPATH.png" alt="shortest">
+            </article>
+
+
+            <article id="linked-lists">
+                <h2>Linked Lists</h2>
+                <p>A linked list consists of nodes with some sort of data, and a pointer, or link, to the next node.</p>
+                <img src="l;inklist.png" alt="link">
+            </article>
+
+            <article id="singly-linked">
+                <h2>Single Linked</h2>
+                <p> is the simplest kind of linked lists. It takes up less space in memory because each node has only one address to the next node, like in the image below.</p>
+                <img src="singlylist.png" alt="single">
+            </article>
+
+            <article id="doubly-linked">
+                <h2>Doubly Linked</h2>
+                <p>doubly linked list has nodes with addresses to both the previous and the next node, like in the image below, and therefore takes up more memory. But doubly linked lists are good if you want to be able to move both up and down in the list.                </p>
+                <img src="doublylist.png" alt="doubly">
+            </article>
+
+            <article id="circular-linked">
+                <h2>Circular Linked</h2>
+                <p> is a type of linked list in which the first and the last nodes are also connected to each other to form a circle. </p>
+                <img src="circular.png" alt="circular">
+            </article>
+
+            <article id="trees">
+                <h2>Trees</h2>
+                <p>is a non-linear data structure in which a collection of elements known as nodes are connected to each other via edges such that there exists exactly one path between any two nodes. </p>
+                <img src="TREE.png" alt="shortest">
+            </article>
+
+            <article id="binary-trees">
+                <h2>Binary Trees</h2>
+                <p>A Binary Tree is a type of tree data structure where each node can have a maximum of two child nodes, a left child node and a right child node. </p>
+                <img src="BINARYTREE.png" alt="shortest">
+            </article>
+
+            <article id="bst">
+                <h2>Binary Search Trees</h2>
+                <p>A Binary Search Tree is a Binary Tree where every node's left child has a lower value, and every node's right child has a higher value.</p>
+                <img src="dst.png" alt="bst">
+            </article>
+
+            <article id="avl">
+                <h2>AVL Trees</h2>
+                <p>AVL trees are self-balancing, which means that the tree height is kept to a minimum so that a very fast runtime is guaranteed for searching, inserting and deleting nodes</p>
+                <img src="avl.png" alt="avl">
+            </article>
+
+            <article id="red-black">
+                <h2>Red-Black Trees</h2>
+                <p>AVL trees are self-balancing, which means that the tree height is kept to a minimum so that a very fast runtime is guaranteed for searching, inserting and deleting nodes</p>
+                <img src="redblacktree.png" alt="reblack">
+            </article>
+
+        </div>
+
+        <footer id="footer">
+            <p>&copy; BRYX</p>
+        </footer>
+    </div>
+
+    <div id="bg"></div>
+</body>
+</html>

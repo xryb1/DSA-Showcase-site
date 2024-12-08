@@ -512,21 +512,53 @@ print("Sorted array:", sorted_arr)
             </article>
 
             <article id="singly-linked">
-                <h2>Single Linked</h2>
-                <p> is the simplest kind of linked lists. It takes up less space in memory because each node has only one address to the next node, like in the image below.</p>
-                <img src="singlylist.png" alt="single">
+                <h2>Singly Linked List</h2>
+                <p>A singly linked list consists of nodes where each node contains data and a pointer to the next node in the sequence.</p>
+                
+                <h3>Example of a Singly Linked List</h3>
+                <pre>
+                Head -> [A] -> [B] -> [C] -> [D] -> NULL
+                </pre>
+                <p>In this singly linked list:</p>
+                <ul>
+                    <li><strong>Head</strong> points to the first node containing <strong>A</strong>.</li>
+                    <li>Each node points to the next node in the list.</li>
+                    <li>The last node points to <strong>NULL</strong>, indicating the end of the list.</li>
+                </ul>
             </article>
 
             <article id="doubly-linked">
-                <h2>Doubly Linked</h2>
-                <p>doubly linked list has nodes with addresses to both the previous and the next node, like in the image below, and therefore takes up more memory. But doubly linked lists are good if you want to be able to move both up and down in the list.                </p>
-                <img src="doublylist.png" alt="doubly">
+                <h2>Doubly Linked List</h2>
+                <p>A doubly linked list consists of nodes where each node contains data and two pointers: one pointing to the next node and another pointing to the previous node.</p>
+                
+                <h3>Example of a Doubly Linked List</h3>
+                <pre>
+                NULL <- [A] <-> [B] <-> [C] <-> [D] -> NULL
+                </pre>
+                <p>In this doubly linked list:</p>
+                <ul>
+                    <li><strong>Head</strong> points to the first node containing <strong>A</strong>.</li>
+                    <li>Each node points to both the next and previous nodes.</li>
+                    <li>The first node's previous pointer points to <strong>NULL</strong>, and the last node's next pointer points to <strong>NULL</strong>.</li>
+                </ul>
             </article>
 
             <article id="circular-linked">
-                <h2>Circular Linked</h2>
-                <p> is a type of linked list in which the first and the last nodes are also connected to each other to form a circle. </p>
-                <img src="circular.png" alt="circular">
+                <h2>Circular Linked List</h2>
+                <p>A circular linked list is a variation where the last node points back to the first node, forming a circle.</p>
+                
+                <h3>Example of a Circular Linked List</h3>
+                <pre>
+                Head -> [A] -> [B] -> [C] -> [D] -+
+                          ^                     |
+                          +---------------------+
+                </pre>
+                <p>In this circular linked list:</p>
+                <ul>
+                    <li><strong>Head</strong> points to the first node containing <strong>A</strong>.</li>
+                    <li>The last node points back to the head, creating a circular structure.</li>
+                    <li>This allows for continuous traversal of the list without encountering <strong>NULL</strong>.</li>
+                </ul>
             </article>
 
             <article id="trees">

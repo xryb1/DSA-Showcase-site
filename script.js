@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const articles = document.querySelectorAll('article');
     const links = document.querySelectorAll('.side-menu a');
+    const sideNav = document.querySelector('.side-nav');
 
-    // Add this function to close the side nav
-    function closeSideNav() {
-        const sideNav = document.querySelector('.side-nav');
-        if (sideNav) {
-            sideNav.style.transform = 'translateX(-200px)'; // Adjust this value to match your CSS
+    // Function to toggle side nav visibility
+    function toggleSideNav() {
+        if (sideNav.style.transform === 'translateX(0px)') {
+            sideNav.style.transform = 'translateX(-200px)'; // Hide side nav
+        } else {
+            sideNav.style.transform = 'translateX(0)'; // Show side nav
         }
     }
 
@@ -16,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = link.getAttribute('href').substring(1);
             
-            // Close the side nav
-            closeSideNav();
 
             // Get currently visible article
             const currentArticle = Array.from(articles).find(article => 
@@ -42,16 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 newArticle.style.display = 'block';
                 newArticle.style.visibility = 'visible';
                 newArticle.classList.add('fade-in');
-                
-                // If this is the searching article, make sure to generate and show the array
-                if (target === 'array-searching') {
-                    generateRandomArraySearch();
-                    const arrayDisplay = document.getElementById('search-array-display');
-                    if (arrayDisplay) {
-                        arrayDisplay.style.display = 'flex';
-                        arrayDisplay.style.visibility = 'visible';
-                    }
-                }
             }
         });
     });
@@ -485,36 +475,34 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSpecificArrayDisplay('counting-sort-display', countingSortArray);
     }
 
-    window.countingSort = async function() {
+    window.countingSort = function() {
         const arr = [...countingSortArray];
-        const max = Math.max(...arr);
-        const min = Math.min(...arr);
-        const range = max - min + 1;
+        const max_val = Math.max(...arr);
+        const count = new Array(max_val + 1).fill(0);
         
-        const count = new Array(range).fill(0);
-        
-        for (let i = 0; i < arr.length; i++) {
-            count[arr[i] - min]++;
-            await new Promise(resolve => setTimeout(resolve, 300));
+        for (let num of arr) {
+            count[num]++;
         }
         
-        for (let i = 1; i < count.length; i++) {
-            count[i] += count[i - 1];
+        const sorted_arr = [];
+        for (let i = 0; i < count.length; i++) {
+            while (count[i] > 0) {
+                sorted_arr.push(i);
+                count[i]--;
+            }
         }
         
-        const output = new Array(arr.length);
-        for (let i = arr.length - 1; i >= 0; i--) {
-            output[count[arr[i] - min] - 1] = arr[i];
-            count[arr[i] - min]--;
-        }
-        
-        countingSortArray = output;
+        countingSortArray = sorted_arr;
         updateSpecificArrayDisplay('counting-sort-display', countingSortArray);
         showResult('Counting Sort completed');
     }
 
-    function updateSpecificArrayDisplay(elementId, array) {
+    // Function to update the display with animation
+    function updateSpecificArrayDisplay(elementId, array, currentIndex) {
         const displayElement = document.getElementById(elementId);
-        displayElement.innerHTML = array.map(num => `<div class="array-element">${num}</div>`).join('');
+        displayElement.innerHTML = array.map((num, idx) => {
+            const isCurrent = idx === currentIndex ? 'highlight' : ''; // Add highlight class for current index
+            return `<div class="array-element ${isCurrent}">${num}</div>`;
+        }).join('');
     }
 });

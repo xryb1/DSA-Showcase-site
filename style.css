@@ -231,12 +231,14 @@ input[type="reset"]:hover {
     left: 0;
     top: 0;
     height: 100vh;
-    background-color: #2d2d2d;
+    background-color: #1b1b1b;
     width: 250px;
     transform: translateX(-200px);
     transition: transform 0.3s ease;
     z-index: 1000;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.61);
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .menu-btn {
@@ -276,9 +278,10 @@ input[type="reset"]:hover {
 }
 
 .side-menu ul {
-    padding: 0 0 0 40px;
+    padding: 0;
     margin: 0;
     width: 100%;
+    list-style: none;
 }
 
 .side-menu li {
@@ -314,14 +317,16 @@ input[type="reset"]:hover {
 
 .side-menu a {
     display: block;
-    padding: 15px 20px;
-    color: white;
+    padding: 10px 15px;
+    color: #e9e6e6;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
+    border-radius: 4px;
 }
 
 .side-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #ffcc00;
+    color: #1b1b1b;
 }
 
 .side-nav:hover {
@@ -509,5 +514,79 @@ input[type="reset"]:hover {
 
 .info-content h4 {
     margin-top: 1.5rem;
+}
+
+/* Add this after your existing styles */
+@media screen and (max-width: 768px) {
+    #wrapper {
+        padding-left: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .logo h1 {
+        font-size: 5rem; /* Smaller font size for mobile */
+    }
+
+    .inner h2 {
+        font-size: 1.5rem; /* Smaller header size */
+    }
+
+    .inner p {
+        font-size: 1rem; /* Smaller paragraph size */
+    }
+
+    .side-nav {
+        width: 100%; /* Full width for mobile */
+        transform: translateX(0); /* Show side nav */
+    }
+
+    .side-menu {
+        padding-top: 50px; /* Adjust padding */
+    }
+
+    .controls {
+        flex-direction: column; /* Stack controls vertically */
+    }
+
+    .controls input,
+    .controls button {
+        width: 100%; /* Full width for inputs and buttons */
+        margin-bottom: 10px; /* Space between elements */
+    }
+
+    .operations-container,
+    .operations-info-container {
+        float: none; /* Remove float for mobile */
+        width: 100%; /* Full width for both containers */
+        margin-bottom: 20px; /* Space between containers */
+    }
+}
+
+.side-nav:hover {
+    transform: translateX(0);
+}
+
+.side-nav:hover .side-menu {
+    opacity: 1;
+}
+
+.side-nav:hover .side-menu {
+    display: block;
+}
+
+.side-nav {
+    transition: transform 0.3s ease; /* Smooth transition for the side nav */
+}
+
+.side-nav:hover {
+    transform: translateX(0); /* Show side nav on hover */
+}
+
+.side-menu {
+    display: none; /* Hide side menu by default */
+}
+
+.side-nav:hover .side-menu {
+    display: block; /* Show side menu on hover */
+    opacity: 1; /* Ensure side menu is fully visible */
 }
 

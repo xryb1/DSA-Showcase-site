@@ -77,7 +77,19 @@
         <div id="main">
             <article id="arrays">
                 <h2>Arrays</h2>
-                <p>Arrays are fundamental data structures that store elements in contiguous memory locations.</p>
+                <p>Arrays are fundamental data structures that store elements in contiguous memory locations. They allow for efficient access to elements using an index.</p>
+                
+                <h3>Example of an Array</h3>
+                <p>Below is an example of a simple array:</p>
+                <pre>
+                [10, 20, 30, 40, 50]
+                </pre>
+                <p>In this array:</p>
+                <ul>
+                    <li>The array contains five elements: <strong>10</strong>, <strong>20</strong>, <strong>30</strong>, <strong>40</strong>, and <strong>50</strong>.</li>
+                    <li>Each element can be accessed using its index, starting from <strong>0</strong>.</li>
+                    <li>For example, the element at index <strong>2</strong> is <strong>30</strong>.</li>
+                </ul>
             </article>
 
             <article id="array-operations">
@@ -244,37 +256,235 @@ print("Sorted array:", sorted_arr)
 
             <article id="graphs">
                 <h2>Graphs</h2>
-                <p>Graphs are collection of nodes (or vertices) connectedby edges. They are used to represent relationshipsbetween pairs of objects. Graphs can be directed or undirected, weighted or unweighted, and widely used in various such as social netweorks, transportation systems, and network topology.</p>
-                <img src="GRAPH.png" alt="graph">
+                <p>Graphs are collections of nodes (or vertices) connected by edges. They are used to represent relationships between pairs of objects. Graphs can be directed or undirected, weighted or unweighted, and are widely used in various applications such as social networks, transportation systems, and network topology.</p>
+                
+                <h3>Example of a Graph</h3>
+                <p>Below is an example of a simple undirected graph:</p>
+                <pre>
+                    A -- B
+                    |  / |
+                    | /  |
+                    C -- D
+                </pre>
+                <p>In this graph:</p>
+                <ul>
+                    <li><strong>A</strong>, <strong>B</strong>, <strong>C</strong>, and <strong>D</strong> are the vertices.</li>
+                    <li>Edges connect the vertices, indicating relationships.</li>
+                    <li>This graph is undirected, meaning the connections have no direction.</li>
+                </ul>
             </article>
 
             <article id="graph-representation">
                 <h2>Graph Representation</h2>
                 <p>Graphs can be represented in various ways, primarily through adjacency lists and adjacency matrices:</p>
+                
+                <h3>1. Adjacency List</h3>
+                <p>This representation uses an array of lists. Each index of the array represents a vertex, and each element in the list at that index represents the vertices that are adjacent to it. This is space-efficient for sparse graphs.</p>
+                <pre>
+                A: [B, C]
+                B: [A, D]
+                C: [A, D]
+                D: [B, C]
+                </pre>
+                <p>In this adjacency list:</p>
                 <ul>
-                    <li><strong>Adjacency List:</strong> This representation uses an array of lists. Each index of the array represents a vertex, and each element in the list at that index represents the vertices that are adjacent to it. This is space-efficient for sparse graphs.</li>
-                    <li><strong>Adjacency Matrix:</strong> This representation uses a 2D array where the rows and columns represent vertices. A cell in the matrix is marked if there is an edge between the corresponding vertices. This is useful for dense graphs but can consume more space.</li>
+                    <li><strong>A</strong> is connected to <strong>B</strong> and <strong>C</strong>.</li>
+                    <li><strong>B</strong> is connected to <strong>A</strong> and <strong>D</strong>.</li>
+                    <li><strong>C</strong> is connected to <strong>A</strong> and <strong>D</strong>.</li>
+                    <li><strong>D</strong> is connected to <strong>B</strong> and <strong>C</strong>.</li>
                 </ul>
-                <img src="adjacent list.png" alt="list">
-                <img src="adjacent.png" alt="adjacentmatrix">
+
+                <h3>2. Adjacency Matrix</h3>
+                <p>This representation uses a 2D array where the rows and columns represent vertices. A cell in the matrix is marked if there is an edge between the corresponding vertices. This is useful for dense graphs but can consume more space.</p>
+                <pre>
+                    A B C D
+                  A 0 1 1 0
+                  B 1 0 0 1
+                  C 1 0 0 1
+                  D 0 1 1 0
+                </pre>
+                <p>In this adjacency matrix:</p>
+                <ul>
+                    <li>A <strong>1</strong> indicates an edge between the vertices, while a <strong>0</strong> indicates no edge.</li>
+                    <li>The matrix is symmetric for undirected graphs.</li>
+                    <li>For example, the entry at row <strong>A</strong> and column <strong>B</strong> is <strong>1</strong>, indicating an edge between <strong>A</strong> and <strong>B</strong>.</li>
+                </ul>
             </article>
 
             <article id="graph-traversal">
                 <h2>Graph Traversal</h2>
-                <p>Graph traversal is the process of visiting each vertex in a graph.</p>
-            
+                <p>Graph traversal is the process of visiting each vertex in a graph. There are two primary methods for traversing a graph: Breadth-First Search (BFS) and Depth-First Search (DFS).</p>
+                
+                <h3>Breadth-First Search (BFS)</h3>
+                <p>BFS explores neighboring vertices before moving to the next level using a queue. It is effective for finding the shortest path in unweighted graphs.</p>
+                <pre>
+                Example Graph:
+                    A
+                   / \
+                  B   C
+                 / \   \
+                D   E   F
+
+                BFS Traversal starting from A: A, B, C, D, E, F
+                </pre>
+                <p>In this BFS traversal:</p>
+                <ul>
+                    <li>Start at the root node <strong>A</strong>.</li>
+                    <li>Visit all neighbors of <strong>A</strong> (i.e., <strong>B</strong> and <strong>C</strong>).</li>
+                    <li>Then visit the neighbors of <strong>B</strong> (i.e., <strong>D</strong> and <strong>E</strong>) and the neighbor of <strong>C</strong> (i.e., <strong>F</strong>).</li>
+                </ul>
+
+                <h3>Depth-First Search (DFS)</h3>
+                <p>DFS explores as far as possible along each branch before backtracking using a stack. It is useful for detecting cycles and exploring connected components in a graph.</p>
+                <pre>
+                Example Graph:
+                    A
+                   / \
+                  B   C
+                 / \   \
+                D   E   F
+
+                DFS Traversal starting from A: A, B, D, E, C, F
+                </pre>
+                <p>In this DFS traversal:</p>
+                <ul>
+                    <li>Start at the root node <strong>A</strong>.</li>
+                    <li>Go as deep as possible along the left branch (to <strong>B</strong>, then to <strong>D</strong>).</li>
+                    <li>Backtrack to <strong>B</strong>, then visit <strong>E</strong>, and backtrack to <strong>A</strong>.</li>
+                    <li>Finally, visit <strong>C</strong> and then <strong>F</strong>.</li>
+                </ul>
             </article>
 
             <article id="bfs">
-                <h2>BFS</h2>
-                <p>Breadth-First Search (BFS) explores neighboring vertices before moving to the next level using a queue. It is effective for finding the shortest path in unweighted graphs as it explores all nodes at the current level before moving on. BFS is ideal for scenarios like finding the shortest route in a maze.</p>
-                <img src="bfs.png" alt="bfs">
+                <h2>Breadth-First Search (BFS)</h2>
+                <p>BFS explores neighboring vertices before moving to the next level using a queue. It is effective for finding the shortest path in unweighted graphs.</p>
+
+                <p>Here’s how BFS works:</p>
+                <ol>
+                    <li>Start at the root node and mark it as visited.</li>
+                    <li>Enqueue the root node into a queue.</li>
+                    <li>While the queue is not empty:</li>
+                    <ul>
+                        <li>Dequeue a node from the front of the queue.</li>
+                        <li>Visit all its unvisited neighbors, mark them as visited, and enqueue them.</li>
+                    </ul>
+                </ol>
+
+                <p>Example Graph:</p>
+                <pre>
+                    A
+                   / \
+                  B   C
+                 / \   \
+                D   E   F
+                </pre>
+
+                <p>BFS Traversal starting from A:</p>
+                <pre>
+1. Start at A: [A]
+2. Visit neighbors of A: [B, C]
+3. Visit neighbors of B: [D, E]
+4. Visit neighbor of C: [F]
+                </pre>
+
+                <p>Final BFS Traversal Order: A, B, C, D, E, F</p>
+
+                <h4>Visualizer</h4>
+                <p>Below is a simple visual representation of the BFS traversal:</p>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <svg width="400" height="300">
+                        <circle cx="200" cy="50" r="20" fill="lightblue" />
+                        <text x="200" y="55" text-anchor="middle" font-size="16">A</text>
+
+                        <circle cx="100" cy="150" r="20" fill="lightgreen" />
+                        <text x="100" y="155" text-anchor="middle" font-size="16">B</text>
+
+                        <circle cx="300" cy="150" r="20" fill="lightgreen" />
+                        <text x="300" y="155" text-anchor="middle" font-size="16">C</text>
+
+                        <circle cx="50" cy="250" r="20" fill="lightcoral" />
+                        <text x="50" y="255" text-anchor="middle" font-size="16">D</text>
+
+                        <circle cx="150" cy="250" r="20" fill="lightcoral" />
+                        <text x="150" y="255" text-anchor="middle" font-size="16">E</text>
+
+                        <circle cx="250" cy="250" r="20" fill="lightcoral" />
+                        <text x="250" y="255" text-anchor="middle" font-size="16">F</text>
+
+                        <line x1="200" y1="70" x2="100" y2="130" stroke="black" />
+                        <line x1="200" y1="70" x2="300" y2="130" stroke="black" />
+                        <line x1="100" y1="170" x2="50" y2="230" stroke="black" />
+                        <line x1="100" y1="170" x2="150" y2="230" stroke="black" />
+                        <line x1="300" y1="170" x2="250" y2="230" stroke="black" />
+                    </svg>
+                </div>
             </article>
 
             <article id="dfs">
-                <h2>DFS</h2>
-                <p>Depth-First Search (DFS) explores as far as possible along each branch before backtracking using a stack. It is useful for detecting cycles and exploring connected components in a graph. DFS is effective for cycle detection and can help identify all vertices connected to a given vertex, making it beneficial for applications like finding clusters in social</p>
-                <img src="dfs.png" alt="dfs">
+                <h2>Depth-First Search (DFS)</h2>
+                <p>DFS explores as far as possible along each branch before backtracking using a stack. It is useful for detecting cycles and exploring connected components in a graph.</p>
+
+                <p>Here’s how DFS works:</p>
+                <ol>
+                    <li>Start at the root node and mark it as visited.</li>
+                    <li>Push the root node onto a stack.</li>
+                    <li>While the stack is not empty:</li>
+                    <ul>
+                        <li>Pop a node from the top of the stack.</li>
+                        <li>Visit all its unvisited neighbors, mark them as visited, and push them onto the stack.</li>
+                    </ul>
+                </ol>
+
+                <p>Example Graph:</p>
+                <pre>
+                    A
+                   / \
+                  B   C
+                 / \   \
+                D   E   F
+                </pre>
+
+                <p>DFS Traversal starting from A:</p>
+                <pre>
+1. Start at A: [A]
+2. Visit B: [A, B]
+3. Visit D: [A, B, D]
+4. Backtrack to B, visit E: [A, B, E]
+5. Backtrack to A, visit C: [A, C]
+6. Visit F: [A, C, F]
+                </pre>
+
+                <p>Final DFS Traversal Order: A, B, D, E, C, F</p>
+
+                <h4>Visualizer</h4>
+                <p>Below is a simple visual representation of the DFS traversal:</p>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <svg width="400" height="300">
+                        <circle cx="200" cy="50" r="20" fill="lightblue" />
+                        <text x="200" y="55" text-anchor="middle" font-size="16">A</text>
+
+                        <circle cx="100" cy="150" r="20" fill="lightgreen" />
+                        <text x="100" y="155" text-anchor="middle" font-size="16">B</text>
+
+                        <circle cx="300" cy="150" r="20" fill="lightgreen" />
+                        <text x="300" y="155" text-anchor="middle" font-size="16">C</text>
+
+                        <circle cx="50" cy="250" r="20" fill="lightcoral" />
+                        <text x="50" y="255" text-anchor="middle" font-size="16">D</text>
+
+                        <circle cx="150" cy="250" r="20" fill="lightcoral" />
+                        <text x="150" y="255" text-anchor="middle" font-size="16">E</text>
+
+                        <circle cx="250" cy="250" r="20" fill="lightcoral" />
+                        <text x="250" y="255" text-anchor="middle" font-size="16">F</text>
+
+                        <line x1="200" y1="70" x2="100" y2="130" stroke="black" />
+                        <line x1="200" y1="70" x2="300" y2="130" stroke="black" />
+                        <line x1="100" y1="170" x2="50" y2="230" stroke="black" />
+                        <line x1="100" y1="170" x2="150" y2="230" stroke="black" />
+                        <line x1="300" y1="170" x2="250" y2="230" stroke="black" />
+                    </svg>
+                </div>
             </article>
 
             <article id="shortest-path">
@@ -286,8 +496,19 @@ print("Sorted array:", sorted_arr)
 
             <article id="linked-lists">
                 <h2>Linked Lists</h2>
-                <p>A linked list consists of nodes with some sort of data, and a pointer, or link, to the next node.</p>
-
+                <p>A linked list consists of nodes, where each node contains data and a pointer (or link) to the next node in the sequence.</p>
+                
+                <h3>Example of a Singly Linked List</h3>
+                <p>Below is an example of a simple singly linked list:</p>
+                <pre>
+                Head -> [A] -> [B] -> [C] -> [D] -> NULL
+                </pre>
+                <p>In this singly linked list:</p>
+                <ul>
+                    <li><strong>Head</strong> points to the first node containing <strong>A</strong>.</li>
+                    <li>Each node points to the next node in the list.</li>
+                    <li>The last node points to <strong>NULL</strong>, indicating the end of the list.</li>
+                </ul>
             </article>
 
             <article id="singly-linked">
@@ -310,7 +531,24 @@ print("Sorted array:", sorted_arr)
 
             <article id="trees">
                 <h2>Trees</h2>
-                <p>is a non-linear data structure in which a collection of elements known as nodes are connected to each other via edges such that there exists exactly one path between any two nodes. </p>
+                <p>A tree is a non-linear data structure in which a collection of elements known as nodes are connected to each other via edges such that there exists exactly one path between any two nodes.</p>
+                
+                <h3>Example of a Binary Tree</h3>
+                <p>Below is an example of a simple binary tree:</p>
+                <pre>
+                    A
+                   / \
+                  B   C
+                 / \   \
+                D   E   F
+                </pre>
+                <p>In this binary tree:</p>
+                <ul>
+                    <li><strong>A</strong> is the root node.</li>
+                    <li><strong>B</strong> and <strong>C</strong> are the children of <strong>A</strong>.</li>
+                    <li><strong>D</strong> and <strong>E</strong> are the children of <strong>B</strong>.</li>
+                    <li><strong>F</strong> is the child of <strong>C</strong>.</li>
+                </ul>
             </article>
 
             <article id="binary-trees">

@@ -52,10 +52,10 @@
                 <li>
                     <a href="#trees">Trees</a>
                     <ul>
-                        <li><a href="#binary-trees">Binary Trees</a></li>
-                        <li><a href="#bst">Binary Search Trees</a></li>
-                        <li><a href="#avl">AVL Trees</a></li>
-                        <li><a href="#red-black">Red-Black Trees</a></li>
+                        <li><a href="#binary-tree">Binary Trees</a></li>
+                        <li><a href="#binary-search-tree">Binary Search Trees</a></li>
+                        <li><a href="#avl-tree">AVL Trees</a></li>
+                        <li><a href="#red-black-tree">Red-Black Trees</a></li>
                     </ul>
                 </li>
             </ul>
@@ -525,6 +525,25 @@ print("Sorted array:", sorted_arr)
                     <li>Each node points to the next node in the list.</li>
                     <li>The last node points to <strong>NULL</strong>, indicating the end of the list.</li>
                 </ul>
+
+                <h4>Visualizer</h4>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <svg width="300" height="100">
+                        <circle cx="50" cy="50" r="20" fill="lightblue" />
+                        <text x="50" y="55" text-anchor="middle" font-size="16">A</text>
+                        <line x1="70" y1="50" x2="130" y2="50" stroke="black" />
+                        <circle cx="150" cy="50" r="20" fill="lightblue" />
+                        <text x="150" y="55" text-anchor="middle" font-size="16">B</text>
+                        <line x1="170" y1="50" x2="230" y2="50" stroke="black" />
+                        <circle cx="250" cy="50" r="20" fill="lightblue" />
+                        <text x="250" y="55" text-anchor="middle" font-size="16">C</text>
+                        <line x1="270" y1="50" x2="330" y2="50" stroke="black" />
+                        <circle cx="350" cy="50" r="20" fill="lightblue" />
+                        <text x="350" y="55" text-anchor="middle" font-size="16">D</text>
+                        <line x1="370" y1="50" x2="400" y2="50" stroke="black" />
+                        <text x="390" y="55" text-anchor="middle" font-size="16">NULL</text>
+                    </svg>
+                </div>
             </article>
 
             <article id="doubly-linked">
@@ -541,6 +560,27 @@ print("Sorted array:", sorted_arr)
                     <li>Each node points to both the next and previous nodes.</li>
                     <li>The first node's previous pointer points to <strong>NULL</strong>, and the last node's next pointer points to <strong>NULL</strong>.</li>
                 </ul>
+
+                <h4>Visualizer</h4>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <svg width="400" height="100">
+                        <text x="10" y="55" text-anchor="middle" font-size="16">NULL</text>
+                        <line x1="50" y1="50" x2="100" y2="50" stroke="black" />
+                        <circle cx="100" cy="50" r="20" fill="lightgreen" />
+                        <text x="100" y="55" text-anchor="middle" font-size="16">A</text>
+                        <line x1="120" y1="50" x2="180" y2="50" stroke="black" />
+                        <circle cx="200" cy="50" r="20" fill="lightgreen" />
+                        <text x="200" y="55" text-anchor="middle" font-size="16">B</text>
+                        <line x1="220" y1="50" x2="280" y2="50" stroke="black" />
+                        <circle cx="300" cy="50" r="20" fill="lightgreen" />
+                        <text x="300" y="55" text-anchor="middle" font-size="16">C</text>
+                        <line x1="320" y1="50" x2="380" y2="50" stroke="black" />
+                        <circle cx="400" cy="50" r="20" fill="lightgreen" />
+                        <text x="400" y="55" text-anchor="middle" font-size="16">D</text>
+                        <line x1="420" y1="50" x2="470" y2="50" stroke="black" />
+                        <text x="480" y="55" text-anchor="middle" font-size="16">NULL</text>
+                    </svg>
+                </div>
             </article>
 
             <article id="circular-linked">
@@ -559,14 +599,31 @@ print("Sorted array:", sorted_arr)
                     <li>The last node points back to the head, creating a circular structure.</li>
                     <li>This allows for continuous traversal of the list without encountering <strong>NULL</strong>.</li>
                 </ul>
+
+                <h4>Visualizer</h4>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <svg width="400" height="300">
+                        <circle cx="200" cy="50" r="20" fill="lightcoral" />
+                        <text x="200" y="55" text-anchor="middle" font-size="16">A</text>
+                        <line x1="220" y1="50" x2="280" y2="50" stroke="black" />
+                        <circle cx="300" cy="50" r="20" fill="lightcoral" />
+                        <text x="300" y="55" text-anchor="middle" font-size="16">B</text>
+                        <line x1="320" y1="50" x2="380" y2="50" stroke="black" />
+                        <circle cx="400" cy="50" r="20" fill="lightcoral" />
+                        <text x="400" y="55" text-anchor="middle" font-size="16">C</text>
+                        <line x1="420" y1="50" x2="480" y2="50" stroke="black" />
+                        <circle cx="500" cy="50" r="20" fill="lightcoral" />
+                        <text x="500" y="55" text-anchor="middle" font-size="16">D</text>
+                        <line x1="520" y1="50" x2="200" y2="50" stroke="black" />
+                    </svg>
+                </div>
             </article>
 
-            <article id="trees">
-                <h2>Trees</h2>
-                <p>A tree is a non-linear data structure in which a collection of elements known as nodes are connected to each other via edges such that there exists exactly one path between any two nodes.</p>
+            <article id="binary-tree">
+                <h2>Binary Tree</h2>
+                <p>A binary tree is a tree data structure in which each node has at most two children, referred to as the left child and the right child.</p>
                 
                 <h3>Example of a Binary Tree</h3>
-                <p>Below is an example of a simple binary tree:</p>
                 <pre>
                     A
                    / \
@@ -583,28 +640,62 @@ print("Sorted array:", sorted_arr)
                 </ul>
             </article>
 
-            <article id="binary-trees">
-                <h2>Binary Trees</h2>
-                <p>A Binary Tree is a type of tree data structure where each node can have a maximum of two child nodes, a left child node and a right child node. </p>
-                <img src="BINARYTREE.png" alt="shortest">
+            <article id="binary-search-tree">
+                <h2>Binary Search Tree (BST)</h2>
+                <p>A binary search tree is a binary tree with the additional condition that for each node, the left subtree contains only nodes with values less than the node’s value, and the right subtree only nodes with values greater than the node’s value.</p>
+                
+                <h3>Example of a Binary Search Tree</h3>
+                <pre>
+                    4
+                   / \
+                  2   6
+                 / \ / \
+                1  3 5  7
+                </pre>
+                <p>In this binary search tree:</p>
+                <ul>
+                    <li>The left child of <strong>4</strong> is <strong>2</strong>, and the right child is <strong>6</strong>.</li>
+                    <li>All values in the left subtree of <strong>4</strong> are less than <strong>4</strong>, and all values in the right subtree are greater.</li>
+                </ul>
             </article>
 
-            <article id="bst">
-                <h2>Binary Search Trees</h2>
-                <p>A Binary Search Tree is a Binary Tree where every node's left child has a lower value, and every node's right child has a higher value.</p>
-                <img src="dst.png" alt="bst">
+            <article id="avl-tree">
+                <h2>AVL Tree</h2>
+                <p>An AVL tree is a self-balancing binary search tree where the difference in heights between the left and right subtrees for any node is at most one. This ensures O(log n) time complexity for search, insert, and delete operations.</p>
+                
+                <h3>Example of an AVL Tree</h3>
+                <pre>
+                    30
+                   /  \
+                  20   40
+                 / \    \
+                10  25   50
+                </pre>
+                <p>In this AVL tree:</p>
+                <ul>
+                    <li>The tree is balanced, with the height difference between left and right subtrees for each node being at most one.</li>
+                </ul>
             </article>
 
-            <article id="avl">
-                <h2>AVL Trees</h2>
-                <p>AVL trees are self-balancing, which means that the tree height is kept to a minimum so that a very fast runtime is guaranteed for searching, inserting and deleting nodes</p>
-                <img src="avl.png" alt="avl">
-            </article>
-
-            <article id="red-black">
-                <h2>Red-Black Trees</h2>
-                <p>AVL trees are self-balancing, which means that the tree height is kept to a minimum so that a very fast runtime is guaranteed for searching, inserting and deleting nodes</p>
-                <img src="redblacktree.png" alt="reblack">
+            <article id="red-black-tree">
+                <h2>Red-Black Tree</h2>
+                <p>A red-black tree is a type of self-balancing binary search tree where each node has an extra bit for denoting the color of the node, either red or black. This ensures that the tree remains approximately balanced during insertions and deletions.</p>
+                
+                <h3>Example of a Red-Black Tree</h3>
+                <pre>
+                    10 (B)
+                   /    \
+                 5(R)   15(R)
+                / \      \
+               3(B)  7(B) 20(B)
+                </pre>
+                <p>In this red-black tree:</p>
+                <ul>
+                    <li>Every node is either red or black.</li>
+                    <li>The root is always black.</li>
+                    <li>Red nodes cannot have red children (no two reds in a row).</li>
+                    <li>Every path from a node to its descendant NULL nodes must have the same number of black nodes.</li>
+                </ul>
             </article>
 
             <article id="counting-sort">

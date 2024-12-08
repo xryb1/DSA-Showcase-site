@@ -2,12 +2,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const articles = document.querySelectorAll('article');
     const links = document.querySelectorAll('.side-menu a');
 
+    // Add this function to close the side nav
+    function closeSideNav() {
+        const sideNav = document.querySelector('.side-nav');
+        if (sideNav) {
+            sideNav.style.transform = 'translateX(-200px)'; // Adjust this value to match your CSS
+        }
+    }
+
     // Navigation click handler
     links.forEach(link => {
         link.addEventListener('click', async (e) => {
             e.preventDefault();
             const target = link.getAttribute('href').substring(1);
             
+            // Close the side nav
+            closeSideNav();
+
             // Get currently visible article
             const currentArticle = Array.from(articles).find(article => 
                 article.classList.contains('fade-in'));

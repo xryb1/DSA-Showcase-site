@@ -3,32 +3,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.side-menu a');
     const sideNav = document.querySelector('.side-nav');
 
-    // Function to toggle side nav visibility
+ 
     function toggleSideNav() {
         if (sideNav.style.transform === 'translateX(0px)') {
-            sideNav.style.transform = 'translateX(-200px)'; // Hide side nav
+            sideNav.style.transform = 'translateX(-200px)'; 
         } else {
-            sideNav.style.transform = 'translateX(0)'; // Show side nav
+            sideNav.style.transform = 'translateX(0)'; 
         }
     }
 
-    // Navigation click handler
+
     links.forEach(link => {
         link.addEventListener('click', async (e) => {
             e.preventDefault();
             const target = link.getAttribute('href').substring(1);
             
 
-            // Get currently visible article
+           
             const currentArticle = Array.from(articles).find(article => 
                 article.classList.contains('fade-in'));
 
             if (currentArticle) {
-                // Fade out current article
+               
                 currentArticle.classList.remove('fade-in');
                 currentArticle.classList.add('fade-out');
                 
-                // Wait for animation to complete
+               
                 await new Promise(resolve => setTimeout(resolve, 500));
                 
                 currentArticle.classList.remove('fade-out');
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentArticle.style.visibility = 'hidden';
             }
 
-            // Show and fade in new article
+       
             const newArticle = document.getElementById(target);
             if (newArticle) {
                 newArticle.style.display = 'block';
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form handling
+
     const contactForm = document.querySelector('form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -54,14 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
             
-            // You can handle the form submission here
+            
             console.log('Form submitted:', data);
             alert('Message sent! (This is a demo)');
             contactForm.reset();
         });
     }
 
-    // Add smooth scrolling
+  
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Array Operations
+    
     let currentArray = [];
 
-    // Basic Operations Functions
+   
     window.insertElement = function() {
         const num = parseInt(document.getElementById('arrayInput').value);
         const index = parseInt(document.getElementById('arrayIndex').value);
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateArrayDisplay('search-array-display');
         showResult(`Inserted ${num} successfully`);
         
-        // Clear input fields
+    
         document.getElementById('arrayInput').value = '';
         document.getElementById('arrayIndex').value = '';
     }
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateArrayDisplay('search-array-display');
         showResult(`Deleted ${deleted} at index ${index}`);
         
-        // Clear input field
+
         document.getElementById('arrayIndex').value = '';
     }
 
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const index = currentArray.indexOf(num);
         if (index !== -1) {
             showResult(`Found ${num} at index ${index}`);
-            // Highlight found element
+          
             const elements = document.querySelectorAll('.array-element');
             elements[index].style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
             setTimeout(() => {
@@ -141,11 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
             showResult(`${num} not found in array`);
         }
         
-        // Clear input field
+ 
         document.getElementById('arrayInput').value = '';
     }
 
-    // Sorting Functions
+ 
     function updateArrayDisplay(containerId) {
         const display = document.getElementById(containerId);
         if (!display) return;
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateArrayDisplay('sort-array-display');
     }
 
-    // Separate array states for each sorting algorithm
+    
     let bubbleSortArray = [];
     let quickSortArray = [];
     let selectionSortArray = [];
@@ -272,14 +272,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initialize arrays when respective articles are shown
+
     document.addEventListener('DOMContentLoaded', () => {
         generateRandomArrayBubble();
         generateRandomArrayQuick();
         generateRandomArraySelection();
     });
 
-    // Searching Functions
+    
     function linearSearch() {
         const num = parseInt(document.getElementById('searchInput').value);
         if (isNaN(num)) {
@@ -309,7 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
         while (left <= right) {
             const mid = Math.floor((left + right) / 2);
             
-            // Highlight current section
             for (let i = left; i <= right; i++) {
                 elements[i].style.backgroundColor = 'rgba(255, 165, 0, 0.3)';
             }
@@ -322,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Reset colors
+          
             for (let i = left; i <= right; i++) {
                 elements[i].style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
             }
@@ -338,12 +337,12 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.forEach(el => el.style.backgroundColor = 'rgba(255, 255, 255, 0.2)');
     }
 
-    // Utility Functions
+ 
     function showResult(message) {
         document.getElementById('operation-result').textContent = message;
     }
 
-    // Initialize
+  
     generateRandomArray();
 
     window.generateRandomArrayBasic = function() {
@@ -352,7 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showResult('Generated new random array');
     }
 
-    // Initialize array when basic operations article is shown
     document.addEventListener('DOMContentLoaded', () => {
         const basicOpsArticle = document.getElementById('array-operations');
         if (basicOpsArticle) {
@@ -361,11 +359,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.generateRandomArraySearch = function() {
-        // Generate random array and sort it for binary search
+   
         const array = Array.from({length: 10}, () => Math.floor(Math.random() * 100));
         array.sort((a, b) => a - b);
         
-        // Update both the display and the stored array
+   
         const displayElement = document.getElementById('search-array-display');
         if (displayElement) {
             displayElement.style.display = 'flex';
@@ -375,10 +373,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ).join('');
         }
         
-        // Store the array for searching operations
+        
         window.searchArray = array;
         
-        // Clear previous search results
+    
         const searchResult = document.getElementById('search-result');
         if (searchResult) {
             searchResult.textContent = '';
@@ -395,16 +393,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const elements = document.querySelectorAll('#search-array-display .array-element');
         
         for (let i = 0; i < window.searchArray.length; i++) {
-            // Highlight current element being checked
-            elements[i].style.backgroundColor = 'rgba(255, 165, 0, 0.5)'; // Orange highlight
+       
+            elements[i].style.backgroundColor = 'rgba(255, 165, 0, 0.5)';
             await new Promise(resolve => setTimeout(resolve, 500));
             
             if (window.searchArray[i] === num) {
-                elements[i].style.backgroundColor = 'rgba(0, 255, 0, 0.5)'; // Green for found
+                elements[i].style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
                 document.getElementById('search-result').textContent = `Found ${num} at index ${i}`;
                 return;
             }
-            elements[i].style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; // Reset color
+            elements[i].style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; 
         }
         
         document.getElementById('search-result').textContent = `${num} not found in array`;
@@ -424,7 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
         while (left <= right) {
             const mid = Math.floor((left + right) / 2);
             
-            // Highlight current section
+           
             for (let i = left; i <= right; i++) {
                 elements[i].style.backgroundColor = 'rgba(255, 165, 0, 0.3)';
             }
@@ -437,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Reset colors
+          
             for (let i = left; i <= right; i++) {
                 elements[i].style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
             }
@@ -453,12 +451,12 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.forEach(el => el.style.backgroundColor = 'rgba(255, 255, 255, 0.2)');
     }
 
-    // Initialize array searching functionality
+    
     document.addEventListener('DOMContentLoaded', () => {
-        // Initial array generation
+   
         generateRandomArraySearch();
         
-        // Add click handler for the generate button
+        
         const generateButton = document.querySelector('button[onclick="generateRandomArraySearch()"]');
         if (generateButton) {
             generateButton.addEventListener('click', (e) => {
@@ -497,11 +495,11 @@ document.addEventListener('DOMContentLoaded', () => {
         showResult('Counting Sort completed');
     }
 
-    // Function to update the display with animation
+    
     function updateSpecificArrayDisplay(elementId, array, currentIndex) {
         const displayElement = document.getElementById(elementId);
         displayElement.innerHTML = array.map((num, idx) => {
-            const isCurrent = idx === currentIndex ? 'highlight' : ''; // Add highlight class for current index
+            const isCurrent = idx === currentIndex ? 'highlight' : ''; 
             return `<div class="array-element ${isCurrent}">${num}</div>`;
         }).join('');
     }

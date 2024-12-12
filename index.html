@@ -112,49 +112,107 @@
                     <h3>Python Implementation</h3>
                     <p>Here's how these basic array operations can be implemented in Python. In Python, lists are used as dynamic arrays and provide built-in methods for these operations:</p>
                     <pre><code class="language-python">
-# Basic Array Operations in Python
+                        # Basic Array Operations in Python
 
-# Initialize an array
-array = []
+                        # Initialize an array
+                        array = []
 
-# Generate random array
-import random
-def generate_random_array():
-    return [random.randint(1, 100) for _ in range(10)]
+                        # Generate random array
+                        import random
+                        def generate_random_array():
+                            return [random.randint(1, 100) for _ in range(10)]
 
-# Insert element at specific index
-def insert_element(arr, value, index):
-    arr.insert(index, value)
-    return arr
+                        # Insert element at specific index
+                        def insert_element(arr, value, index):
+                            arr.insert(index, value)
+                            return arr
 
-# Delete element at specific index
-def delete_element(arr, index):
-    if 0 <= index < len(arr):
-        return arr.pop(index)
-    return None
+                        # Delete element at specific index
+                        def delete_element(arr, index):
+                            if 0 <= index < len(arr):
+                                return arr.pop(index)
+                            return None
 
-# Search for element
-def search_element(arr, value):
-    try:
-        return arr.index(value)
-    except ValueError:
-        return -1
+                        # Search for element
+                        def search_element(arr, value):
+                            try:
+                                return arr.index(value)
+                            except ValueError:
+                                return -1
 
-# Example usage:
-array = generate_random_array()
-print("Initial array:", array)
+                        # Example usage:
+                        array = generate_random_array()
+                        print("Initial array:", array)
 
-# Insert 42 at index 2
-array = insert_element(array, 42, 2)
-print("After insertion:", array)
+                        # Insert 42 at index 2
+                        array = insert_element(array, 42, 2)
+                        print("After insertion:", array)
 
-# Delete element at index 3
-deleted = delete_element(array, 3)
-print("After deletion:", array)
+                        # Delete element at index 3
+                        deleted = delete_element(array, 3)
+                        print("After deletion:", array)
 
-# Search for element 42
-position = search_element(array, 42)
-print("42 found at index:", position)
+                        # Search for element 42
+                        position = search_element(array, 42)
+                        print("42 found at index:", position)
+                    </code></pre>
+                </div>
+
+                <div class="code-explanation">
+                    <h3>Pseudocode</h3>
+                    <p>Below is the pseudocode that explains the basic array operations:</p>
+                    <pre><code class="language-text">
+                        # Pseudocode for Basic Array Operations
+
+                        # Initialize an array
+                        array = []
+
+                        # Function to generate a random array of 10 integers between 1 and 100
+                        FUNCTION generate_random_array():
+                            array = []
+                            FOR i FROM 1 TO 10:
+                            random_value = RANDOM_INTEGER_BETWEEN(1, 100)
+                            array.APPEND(random_value)
+                            RETURN array
+
+                        # Function to insert an element at a specific index in the array
+                        FUNCTION insert_element(array, value, index):
+                            array.INSERT(index, value)
+                            RETURN array
+
+                        # Function to delete an element at a specific index in the array
+                        FUNCTION delete_element(array, index):
+                            IF index >= 0 AND index < LENGTH(array):
+                            removed_value = array.POP(index)
+                            RETURN removed_value
+                            ELSE:
+                            RETURN NULL  # Indicates no element was removed
+
+                        # Function to search for an element in the array and return its index
+                        FUNCTION search_element(array, value):
+                            TRY:
+                            position = array.FIND_INDEX(value)
+                            RETURN position
+                            EXCEPT VALUE_NOT_FOUND:
+                            RETURN -1  # If the value is not found, return -1
+
+                        # Main Program Execution
+
+                        # Generate a random array and print it
+                        array = generate_random_array()
+                        PRINT("Initial array:", array)
+
+                        # Insert the number 42 at index 2 and print the updated array
+                        array = insert_element(array, 42, 2)
+                        PRINT("After insertion:", array)
+
+                        # Delete an element at index 3 and print the updated array
+                        deleted_value = delete_element(array, 3)
+                        PRINT("After deletion:", array)
+
+                        # Search for the value 42 in the array and print its position
+                        position = search_element(array, 42)
+                        PRINT("42 found at index:", position)
                     </code></pre>
                 </div>
             </article>
@@ -173,18 +231,41 @@ print("42 found at index:", position)
                     <p>Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.</p>
                     <h4>Python Implementation</h4>
                     <pre><code class="language-python">
-def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n - 1):
-        for j in range(0, n - i - 1):
-            if arr[j] > arr[j + 1]:
+            def bubble_sort(arr):
+                n = len(arr)
+                for i in range(n - 1):
+                for j in range(0, n - i - 1):
+                if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
-    return arr
-
-# Example usage:
-arr = [64, 34, 25, 12, 22, 11, 90]
-sorted_arr = bubble_sort(arr)
-print("Sorted array:", sorted_arr)
+                return arr
+            
+            # Example usage:
+            arr = [64, 34, 25, 12, 22, 11, 90]
+            sorted_arr = bubble_sort(arr)
+            print("Sorted array:", sorted_arr)
+                    </code></pre>
+                    
+                    <h3>Pseudocode</h3>
+                    <pre><code>
+            FUNCTION bubble_sort(array):
+                # Get the length of the array
+                n = LENGTH(array)
+                
+                # Outer loop for each pass
+                FOR i FROM 0 TO n - 2:
+                    # Inner loop to compare adjacent elements
+                    FOR j FROM 0 TO n - i - 2:
+                    # If the current element is greater than the next element, swap them
+                    IF array[j] > array[j + 1]:
+                    TEMP = array[j]
+                    array[j] = array[j + 1]
+                    array[j + 1] = TEMP
+            RETURN array
+            
+            # Example usage:
+            array = [64, 34, 25, 12, 22, 11, 90]
+            sorted_array = bubble_sort(array)
+            PRINT("Sorted array:", sorted_array)
                     </code></pre>
                 </div>
             </article>
@@ -201,26 +282,55 @@ print("Sorted array:", sorted_arr)
                 <div class="code-explanation">
                     <h3>Quick Sort Algorithm</h3>
                     <p>Quick Sort is an efficient, in-place sorting algorithm that uses a divide-and-conquer strategy to sort elements.</p>
+                    
                     <h4>Python Implementation</h4>
                     <pre><code class="language-python">
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    
-    pivot = arr[len(arr) // 2]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
-    
-    return quick_sort(left) + middle + quick_sort(right)
-
-# Example usage:
-arr = [64, 34, 25, 12, 22, 11, 90]
-sorted_arr = quick_sort(arr)
-print("Sorted array:", sorted_arr)
-                    </code></pre>
+            def quick_sort(arr):
+                if len(arr) <= 1:
+                    return arr
+                
+                pivot = arr[len(arr) // 2]
+                left = [x for x in arr if x < pivot]
+                middle = [x for x in arr if x == pivot]
+                right = [x for x in arr if x > pivot]
+                
+                return quick_sort(left) + middle + quick_sort(right)
+            
+            # Example usage:
+            arr = [64, 34, 25, 12, 22, 11, 90]
+            sorted_arr = quick_sort(arr)
+            print("Sorted array:", sorted_arr)
+                                </code></pre>
+                    
+                    <h4>Pseudocode</h4>
+                    <pre><code class="language-plaintext">
+            FUNCTION quick_sort(array):
+                # Base case: If the array has one or zero elements, it is already sorted
+                IF LENGTH(array) <= 1:
+                RETURN array
+                
+                # Choose a pivot element (in this case, the middle element)
+                pivot = array[LENGTH(array) // 2]
+                
+                # Partition the array into three parts:
+                # 1. Left: elements less than the pivot
+                # 2. Middle: elements equal to the pivot
+                # 3. Right: elements greater than the pivot
+                left = [x FOR x IN array IF x < pivot]
+                middle = [x FOR x IN array IF x == pivot]
+                right = [x FOR x IN array IF x > pivot]
+                
+                # Recursively sort the left and right partitions and combine them with the middle
+                RETURN quick_sort(left) + middle + quick_sort(right)
+            
+            # Example usage:
+            array = [64, 34, 25, 12, 22, 11, 90]
+            sorted_array = quick_sort(array)
+            PRINT("Sorted array:", sorted_array)
+                 </code></pre>
                 </div>
             </article>
+            
 
             <article id="selection-sort">
                 <h2>Selection Sort</h2>
@@ -234,25 +344,119 @@ print("Sorted array:", sorted_arr)
                 <div class="code-explanation">
                     <h3>Selection Sort Algorithm</h3>
                     <p>Selection Sort is a simple sorting algorithm that divides the input into a sorted and unsorted region, and repeatedly selects the smallest element from the unsorted region to add to the sorted region.</p>
+                    
                     <h4>Python Implementation</h4>
                     <pre><code class="language-python">
-def selection_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        min_idx = i
-        for j in range(i + 1, n):
-            if arr[j] < arr[min_idx]:
+            def selection_sort(arr):
+                n = len(arr)
+                for i in range(n):
+                min_idx = i
+                for j in range(i + 1, n):
+                if arr[j] < arr[min_idx]:
                 min_idx = j
-        arr[i], arr[min_idx] = arr[min_idx], arr[i]
-    return arr
-
-# Example usage:
-arr = [64, 34, 25, 12, 22, 11, 90]
-sorted_arr = selection_sort(arr)
-print("Sorted array:", sorted_arr)
+                arr[i], arr[min_idx] = arr[min_idx], arr[i]
+                return arr
+            
+            # Example usage:
+            arr = [64, 34, 25, 12, 22, 11, 90]
+            sorted_arr = selection_sort(arr)
+            print("Sorted array:", sorted_arr)
+                    </code></pre>
+            
+                    <h3>Pseudocode</h3>
+                    <pre><code class="language-plaintext">
+            FUNCTION selection_sort(array):
+                # Get the length of the<article id="selection-sort">
+                <h2>Selection Sort</h2>
+                <div class="array-demo">
+                    <div class="array-container" id="selection-sort-display"></div>
+                    <div class="controls">
+                        <button onclick="generateRandomArraySelection()">Generate Random Array</button>
+                        <button onclick="selectionSort()">Selection Sort</button>
+                    </div>
+                </div>
+                <div class="code-explanation">
+                    <h3>Selection Sort Algorithm</h3>
+                    <p>Selection Sort is a simple sorting algorithm that divides the input into a sorted and unsorted region, and repeatedly selects the smallest element from the unsorted region to add to the sorted region.</p>
+                    
+                    <h4>Python Implementation</h4>
+                    <pre><code class="language-python">
+            def selection_sort(arr):
+                n = len(arr)
+                for i in range(n):
+                min_idx = i
+                for j in range(i + 1, n):
+                if arr[j] < arr[min_idx]:
+                min_idx = j
+                arr[i], arr[min_idx] = arr[min_idx], arr[i]
+                return arr
+            
+            # Example usage:
+            arr = [64, 34, 25, 12, 22, 11, 90]
+            sorted_arr = selection_sort(arr)
+            print("Sorted array:", sorted_arr)
+                    </code></pre>
+            
+                    <h4>Pseudocode for Selection Sort</h4>
+                    <pre><code class="language-plaintext">
+            FUNCTION selection_sort(array):
+                # Get the length of the array
+                n = LENGTH(array)
+                
+                # Iterate over each element in the array
+                FOR i = 0 TO n - 1:
+                    # Assume the current element is the minimum
+                    min_idx = i
+                    
+                    # Find the smallest element in the remaining unsorted part
+                    FOR j = i + 1 TO n - 1:
+                        IF array[j] < array[min_idx]:
+                        # Update the index of the minimum element
+                        min_idx = j
+                    
+                    # Swap the current element with the minimum element found
+                    SWAP array[i] WITH array[min_idx]
+                
+                # Return the sorted array
+                RETURN array
+            
+            # Example usage:
+            array = [64, 34, 25, 12, 22, 11, 90]
+            sorted_array = selection_sort(array)
+            PRINT("Sorted array:", sorted_array)
                     </code></pre>
                 </div>
             </article>
+            
+            
+            array
+                n = LENGTH(array)
+                
+                # Iterate over each element in the array
+                FOR i = 0 TO n - 1:
+                # Assume the current element is the minimum
+                min_idx = i
+                    
+                # Find the smallest element in the remaining unsorted part
+                FOR j = i + 1 TO n - 1:
+                IF array[j] < array[min_idx]:
+                # Update the index of the minimum element
+                min_idx = j
+                    
+                # Swap the current element with the minimum element found
+                SWAP array[i] WITH array[min_idx]
+                
+                # Return the sorted array
+                RETURN array
+            
+            # Example usage:
+            array = [64, 34, 25, 12, 22, 11, 90]
+            sorted_array = selection_sort(array)
+            PRINT("Sorted array:", sorted_array)
+                    </code></pre>
+                </div>
+            </article>
+            
 
             <article id="graphs">
                 <h2>Graphs</h2>
